@@ -31,7 +31,7 @@ public class HelloClientApplication {
 		SpringApplication.run(HelloClientApplication.class, args);
 	}
 
-	@FeignClient("HelloServer")
+	@FeignClient(name = "HelloServer", fallback = TgkHystrixClientFallback.class)
 	interface HelloClient {
 		@RequestMapping(value = "/", method = GET)
 		String hello();

@@ -2,6 +2,11 @@ spring:
   application:
     name: HelloClient
 
+feign:  client:    config:      default:
+        connect-timeout: 2000
+        read-timeout: 2000
+        logger-level: basic  hystrix:    enabled: true
+
 server:
   port: 7211
 
